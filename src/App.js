@@ -1,24 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import { LargePersonListItem } from "./people/LargePersonListItem";
+import { SmallPersonListItem } from "./people/SmallPersonListItem";
+import { RegularList } from "./RegularList";
+import { SmallProductListeItem } from "./products/SmallProductListeItem";
+import { NumberedList } from "./NumberedList";
+import { LargeProductListeItem } from "./products/LargeProductListeItem";
+
+const people =  [{
+  name: 'John Doe',
+  age: 40,
+  hairColor: 'brown',
+  hobbies: ['music', 'sports', 'games']
+}, {
+  name: 'Jane Doe',
+  age: 30,
+  hairColor: 'blonde',
+  hobbies: ['music', 'football', 'mathematics', 'biology', 'sociology']
+}, {
+  name: 'Jack Doe',
+  age: 25,
+  hairColor: 'black',
+  hobbies: ['hokey', 'novels', 'painting']
+}]
+
+const products = [{
+  name: 'banana',
+  price: 1.5,
+  description: 'yellow and delicious',
+  rating: 4.5
+}, {
+  name: 'orange',
+  price: 2.5,
+  description: 'orange and delicious',
+  rating: 3.8
+}, {
+  name: 'apple',
+  price: 3.5,
+  description: 'red and delicious',
+  rating: 2.5
+}]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <RegularList
+        items={people}
+        resourceName="person" 
+        itemComponent={SmallPersonListItem}
+      />
+      <NumberedList
+        items={people}
+        resourceName="person" 
+        itemComponent={LargePersonListItem} 
+      />
+      <RegularList
+        items={products}
+        resourceName="product" 
+        itemComponent={SmallProductListeItem} 
+      />
+      <NumberedList
+        items={products}
+        resourceName="product" 
+        itemComponent={LargeProductListeItem} 
+      />
+    </>
   );
 }
 
