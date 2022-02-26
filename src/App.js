@@ -4,10 +4,11 @@ import { RegularList } from "./RegularList";
 import { SmallProductListeItem } from "./products/SmallProductListeItem";
 import { NumberedList } from "./NumberedList";
 import { LargeProductListeItem } from "./products/LargeProductListeItem";
+import { Modal } from "./Modal";
 
 const people =  [{
   name: 'John Doe',
-  age: 40,
+  age: 0,
   hairColor: 'brown',
   hobbies: ['music', 'sports', 'games']
 }, {
@@ -42,6 +43,11 @@ const products = [{
 function App() {
   return (
     <>
+      <Modal>
+        <LargeProductListeItem 
+          product={products[0]} 
+        />
+      </Modal>
       <RegularList
         items={people}
         resourceName="person" 
